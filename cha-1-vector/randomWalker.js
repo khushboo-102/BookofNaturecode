@@ -22,9 +22,9 @@ class Walker {
         this.pos.add(this.vel);
     }
     show() {
-        stroke("green");
+        stroke("white");
         strokeWeight(2);
         fill("green")
-        ellipse(this.pos.x, this.pos.y, 32);
+        circle(this.pos.x, this.pos.y, 32);
     }
 }
