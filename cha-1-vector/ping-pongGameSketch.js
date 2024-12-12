@@ -1,9 +1,11 @@
+ 
+
 // Instead of a bunch of floats, you now have just two variables.
 let position;
 let velocity;
 
 function setup() {
-  createCanvas(1500, 900);
+  createCanvas(800, 600);
   // Note that createVector() has to be called inside setup().
   position = createVector(100, 100);
   velocity = createVector(2.5,2);
@@ -23,5 +25,13 @@ function draw() {
 
   stroke(0);
   fill(127);
-  circle(position.x, position.y, 20);
+  circle(position.x, position.y, 50);
+
+  fill("red")
+//   square(770,200,170)
+//   square(-140,200,170)
+rect(770,200,30,200)
+rect(-1,200,30,200)
+
+
 }
