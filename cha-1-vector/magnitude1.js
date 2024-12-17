@@ -1,7 +1,5 @@
-
-//set the canvas
 function setup() {
-    createCanvas(1850, 950);
+    createCanvas(1850, 950); //set the canvas
 }
 function draw() {
     background("orange");
@@ -11,7 +9,7 @@ function draw() {
     mouse.sub(center);
     let m = mouse.mag();//calculate the length(magnitude) of mouse 
     fill("pink");
-    rect(0, 0, m, 20); // m is the distance btw mouse and center
+    rect(20, 10, m, 100); // m is the distance btw mouse and center
     translate(width / 2, height / 2);
     stroke("brown")
     line(0, 0, mouse.x, mouse.y);
