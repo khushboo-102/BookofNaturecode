@@ -6,7 +6,7 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
 
     topcolor = color("yellow");
-    bottomcolor = color("orange");
+    bottomcolor = color("green");
 
     for (let y = 0; y < height; y++){
 
@@ -22,6 +22,7 @@ function setup() {
 }
 function draw() {
     let vector = createVector(mouseX, mouseY);
-    fill("black");
+    fill("green");
+    // stroke(3)
     line(200, 200, mouseX, mouseY);
 }
