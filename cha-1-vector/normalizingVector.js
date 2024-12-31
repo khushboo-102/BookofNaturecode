@@ -7,14 +7,14 @@ function draw() {
     let mouse = createVector(mouseX, mouseY);
     let center = createVector(width / 2, height / 2);
     mouse.sub(center);
-
+    //first line 
     translate(width / 2, height / 2);
-    stroke(200);
+    stroke("brown");
     line(0, 0, mouse.x, mouse.y);
     mouse.normalize();
-    mouse.mult(50);
-    fill("pink")
-    stroke(0);
-    strokeWeight(8);
+    mouse.mult(100);
+    //second line
+    stroke("green");
+    strokeWeight(10);   
     line(0, 0, mouse.x, mouse.y);
 }

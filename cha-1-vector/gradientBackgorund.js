@@ -1,5 +1,4 @@
-// let vector;
-
+ 
 let topcolor, bottomcolor;
 
 function setup() {
@@ -10,7 +9,7 @@ function setup() {
 
     for (let y = 0; y < height; y++){
 
-    n = map(y, 0, height, 0, 1);
+    n = map(y, 0, height, 0,1);
 
     let newcolor = lerpColor(topcolor, bottomcolor, n);
 
