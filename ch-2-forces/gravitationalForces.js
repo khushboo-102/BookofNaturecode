@@ -6,7 +6,7 @@ function setup() {
 }
 function draw() {
     background("green")  //set the background color
-
+        
     if (mouseIsPressed) {
         let gravity = createVector(0, 1)
         mover.applyForce(gravity);
@@ -21,7 +21,7 @@ function draw() {
 class Mover {
     constructor(x, y) {
         this.pos = createVector(x, y)
-        this.vel = createVector(0, 0);
+        this.vel     = createVector(0, 0);
     }
     applyForce(force) {
         this.acc = force;
@@ -42,7 +42,7 @@ class Mover {
     show() {
         stroke(225)
         strokeWeight(2)
-        fill(255, 100)
-        ellipse(this.pos.x, this.pos.y, 32)
+        fill("pink")
+        ellipse(this.pos.x, this.pos.y, 30)
     }
 }
