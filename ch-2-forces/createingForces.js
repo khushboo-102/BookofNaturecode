@@ -1,3 +1,4 @@
+//declear the mover object
 let mover;
 
 function setup() {
