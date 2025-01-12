@@ -7,7 +7,7 @@ function setup() {
 function draw() {
     background(0, 153, 153); // set the background color
 
-    let helium = createVector(0, -0.05); // create the hulium force in which balloon moving upwards
+    let helium = createVector(0, -0.05); // create the hekllium force in which balloon moving upwards
 
     let windStrength = noise(frameCount * 0.01) * 0.2 - 0.1; // Varies between -0.1 and 0.1
 
