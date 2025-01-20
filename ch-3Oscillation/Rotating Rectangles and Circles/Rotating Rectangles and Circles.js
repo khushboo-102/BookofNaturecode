@@ -18,11 +18,11 @@ function draw() {
     // Move the origin of the canvas to the center of the canvas (200, 200)
     translate(200, 200);
 
-    // Rotate the canvas by the current angle
+    // Rotate the rectangle by the current angle
     rotate(angle);
 
     // Draw a rectangle centered at (0, 0) with a width of 250 and a height of 2
-    rect(0, 0, 250, 2);
+    rect(0, 0, 250, 10);
 
     // Draw a circle to the right of the rectangle at (130, 0) with a diameter of 25
     circle(130, 0, 20);
@@ -31,5 +31,5 @@ function draw() {
     circle(-130, 0, 20);
 
     // Increase the angle by 5 radians to rotate the shapes in the next frame
-    angle += 5;
+    angle += 0.5;
 }
