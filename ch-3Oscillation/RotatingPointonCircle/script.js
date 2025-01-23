@@ -22,20 +22,44 @@
 
 
 //============Spiraling Point Animation==========================
-let angle = 0; // Initialize the angle variable to control the point's rotation
-let r = 150;  // Set the initial radius of the spiral
+// let angle = 0; // Initialize the angle variable to control the point's rotation
+// let r = 15  // Set the initial radius of the spiral
+// function setup() {
+//     createCanvas(400, 400); // Create a canvas of size 400x400
+//     background(154, 0, 0); // Set the background color
+// }
+// function draw() {
+//     translate(200, 200); // Move the origin to the center of the canvas
+//     strokeWeight(10); // Set the thickness of the point
+//     stroke(255, 238, 33) // Set the color of the point to yellow
+//     // Calculate the x and y positions of the point using trigonometry
+//     let x = r * cos(angle)
+//     let y = r * sin(angle)
+//     point(x, y) // Draw the point at the calculated position
+//     angle += 0.04 // Increment the angle to create the rotation effect=
+//     r += 0.2
+// }
+
+
+//===============Exercise 3.5 =======================
+let r = 1; // Initial radius of the spiral
+let angle = 0; // Initial angle
+
 function setup() {
     createCanvas(400, 400); // Create a canvas of size 400x400
-    background(154, 0, 0); // Set the background color
+    background(0); // Set the background color to black
 }
+
 function draw() {
-    translate(200, 200); // Move the origin to the center of the canvas
-    strokeWeight(10); // Set the thickness of the point
-    stroke(255, 238, 33) // Set the color of the point to yellow
-    // Calculate the x and y positions of the point using trigonometry
-    let x = r * cos(angle)
-    let y = r * sin(angle)
-    point(x, y) // Draw the point at the calculated position
-    angle += 0.04 // Increment the angle to create the rotation effect=
-    r -= 0.2
+    translate(width / 2, height / 2); // Move the origin to the center of the canvas
+    stroke(255); // Set the stroke color to white
+    strokeWeight(2); // Set the stroke thickness
+
+    let x = r * cos(angle); // Calculate the x-coordinate of the point
+    let y = r * sin(angle); // Calculate the y-coordinate of the point
+
+    point(x, y); // Draw the point at the calculated position
+
+    angle += 0.1; // Increment the angle for rotation
+    r += 0.1; //  this is the added line!
 }
