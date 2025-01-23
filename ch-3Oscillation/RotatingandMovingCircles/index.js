@@ -64,7 +64,7 @@ class MovingRotatingCircle {
     // Draw the rotating line inside the circle
     push();
     translate(this.position.x, this.position.y);// Move the origin to the circle's center
-    rotate(this.angle); // Rotate the line by the current angle
+    // rotate(this.angle); // Rotate the line by the current angle
     strokeWeight(2);
     line(0, 0, this.radius, 0); // Line from center to edge of the circle
     pop();  // Restore the previous transformation state
