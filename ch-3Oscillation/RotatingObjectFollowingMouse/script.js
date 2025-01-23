@@ -49,7 +49,10 @@ class Mover {
         translate(this.position.x, this.position.y);  // Move the origin to the mover's position
         //{!1} Rotate according to that angle.
         rotate(angle); // Rotate the rectangle based on the calculated angle
-        rect(0, 0, 30, 10); // Draw the rectangle
+        fill("green")
+        stroke("white")
+        rect(0, 0,20, 60); // Draw the rectangle
+        // circle(0,0,30)
         pop(); // Restore the original drawing state
       }
 }
