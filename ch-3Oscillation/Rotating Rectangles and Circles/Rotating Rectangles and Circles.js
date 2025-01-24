@@ -24,12 +24,12 @@ function draw() {
     // Draw a rectangle centered at (0, 0) with a width of 250 and a height of 2
     rect(0, 0, 250, 10);
 
-    // Draw a circle to the right of the rectangle at (130, 0) with a diameter of 25
+    // Draw a circle to the right of the rectangle at (130, 0) with a diameter of 20
     circle(130, 0, 20);
 
-    // Draw a circle to the left of the rectangle at (-130, 0) with a diameter of 25
+    // Draw a circle to the left of the rectangle at (-130, 0) with a diameter of 20
     circle(-130, 0, 20);
 
-    // Increase the angle by 5 radians to rotate the shapes in the next frame
+    // Increase the angle by 0.5 radians to rotate the shapes in the next frame
     angle += 0.5;
 }
