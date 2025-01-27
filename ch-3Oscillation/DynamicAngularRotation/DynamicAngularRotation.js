@@ -26,6 +26,7 @@ function draw() {
     // Move the origin of the canvas to the center
     translate(200, 200)
     // Rotate the canvas by the current angle
+
     rotate(angle)
     // Draw a rectangle centered at the new origin
     rect(0, 0, 256, 32);
