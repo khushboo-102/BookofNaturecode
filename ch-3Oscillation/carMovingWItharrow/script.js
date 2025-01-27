@@ -10,7 +10,7 @@ function draw() {
     strokeWeight(2);
     rect(carX, 200, 80, 50); //Draw the car body as a rectangle
     // Draw the car wheels
-    fill(96, 96, 96); //Set the fill color to light green (RGB: 102, 255, 178) for the wheels
+    fill(96, 96, 96); //Set the fill color to light  for the wheels
     ellipse(carX, 250, 35, 35);  //Draw the left wheel as a ellipse
     ellipse(carX + 75, 250, 35, 35); //Draw the right wheel as a ellipse
 
