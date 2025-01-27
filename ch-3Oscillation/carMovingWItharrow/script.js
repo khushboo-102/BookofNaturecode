@@ -1,16 +1,16 @@
 let carX = 15;  //Represents the car's horizontal position on the screen.
 function setup() {
-    createCanvas(800, 500);
+    createCanvas(800, 500); // Set up the canvas size (800x500).
 }
 function draw() {
-    background(0,102,51);
-     
-    fill(102,0,102);  //Set the fill color to pink (RGB: 255, 0, 127) for the car body
+    background(0, 102, 51);
+    // Draw the car body
+    fill(102, 0, 102);  //Set the fill color to for the car body
     stroke(0);
     strokeWeight(2);
     rect(carX, 200, 80, 50); //Draw the car body as a rectangle
-
-    fill(96,96,96); //Set the fill color to light green (RGB: 102, 255, 178) for the wheels
+    // Draw the car wheels
+    fill(96, 96, 96); //Set the fill color to light green (RGB: 102, 255, 178) for the wheels
     ellipse(carX, 250, 35, 35);  //Draw the left wheel as a ellipse
     ellipse(carX + 75, 250, 35, 35); //Draw the right wheel as a ellipse
 
