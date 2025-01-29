@@ -46,4 +46,4 @@ class Oscillator {
     fill(127);
     ellipse(x, y, 32, 32);
   }
-}
+}    
