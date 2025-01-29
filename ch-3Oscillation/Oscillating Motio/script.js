@@ -31,7 +31,7 @@ class Oscillator {
   }
 
   display() {
-    // Compute the x-coordinate using a sine wave for smooth oscillation
+    // Compute the y-coordinate using a cos wave for smooth oscillation
     let y = cos(this.angle) * this.amplitude;
     let x = 0; // Motion occurs only along the X-axis
 
