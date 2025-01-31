@@ -77,92 +77,107 @@
 //         ellipse(this.position.x, this.position.y, 64)
 //     }
 // }
-
-let bob;
-let anchor;
-let spring;
-let gravity;
+let bob;       // The moving end of the spring (pendulum bob)
+let anchor;    // The fixed end of the spring
+let spring;    // The spring connecting bob and anchor
+let gravity;   // Gravity force applied to the bob
 
 function setup() {
-    createCanvas(400, 800);
+    createCanvas(400, 800); // Creates a 400x800 pixel canvas
+
+    // Initialize bob (movable particle) and anchor (fixed point)
     bob = new Particle(350, 0);
     anchor = new Particle(200, 400);
+
+    // Create a spring connecting bob and anchor with a spring constant (k) and rest length
     spring = new Spring(0.01, 200, bob, anchor);
+
+    // Gravity force acting downward on the bob
     gravity = createVector(0, 0.1);
 }
 
 function draw() {
-    background(112, 50, 126);
-    
-    // Apply gravity to the bob
+    background(112, 50, 126); // Sets background color
+
+    // Apply gravity force to the bob
     bob.applyForce(gravity);
 
+    // Update physics for spring and bob
     spring.update();
     bob.update();
 
+    // Display spring, bob, and anchor on the canvas
     spring.show();
     bob.show();
     anchor.show();
 
-    // Mouse interaction: Drag the bob
+    // If the mouse is pressed, move the bob to the mouse location
     if (mouseIsPressed) {
-        bob.position.set(mouseX, mouseY);
-        bob.velocity.set(0, 0); // Stop movement when dragged
+        bob.position.set(mouseX, mouseY); // Move bob to mouse position
+        bob.velocity.set(0, 0); // Stop movement while dragging
     }
 }
 
+// Spring class represents the connection between the bob and anchor
 class Spring {
     constructor(k, restLength, a, b) {
-        this.k = k;
-        this.restLength = restLength;
-        this.a = a;
-        this.b = b;
+        this.k = k; // Spring constant (stiffness)
+        this.restLength = restLength; // Natural length of the spring
+        this.a = a; // First particle (bob)
+        this.b = b; // Second particle (anchor)
     }
     
     update() {
+        // Calculate the direction of the spring force
         let force = p5.Vector.sub(this.b.position, this.a.position);
+        
+        // Calculate the displacement from the rest length
         let x = force.mag() - this.restLength;
+
+        // Normalize force and apply Hooke's Law (F = -k * x)
         force.normalize();
         force.mult(-1 * this.k * x);
+
+        // Apply force to both particles (equal and opposite)
         this.a.applyForce(force);
-        force.mult(-1);
+        force.mult(-1); // Reverse the force for the second particle
         this.b.applyForce(force);
     }
 
     show() {
         strokeWeight(4);
-        stroke(255);
-        line(this.a.position.x, this.a.position.y, this.b.position.x, this.b.position.y);
+        stroke(255); // Set spring color to white
+        line(this.a.position.x, this.a.position.y, this.b.position.x, this.b.position.y); // Draw the spring
     }
 }
 
+// Particle class represents the bob and anchor
 class Particle {
     constructor(x, y) {
-        this.acceleration = createVector(0, 0);
-        this.velocity = createVector(0, 0);
-        this.position = createVector(x, y);
-        this.mass = 1;
+        this.acceleration = createVector(0, 0); // Initial acceleration
+        this.velocity = createVector(0, 0); // Initial velocity
+        this.position = createVector(x, y); // Initial position
+        this.mass = 1; // Mass of the particle
     }
 
     applyForce(force) {
         let f = force.copy();
-        f.div(this.mass);
+        f.div(this.mass); // Apply Newton’s second law (F = ma)
         this.acceleration.add(f);
     }
 
     update() {
-        this.velocity.mult(0.99); // Reduced damping for smoother motion
-        this.velocity.add(this.acceleration);
-        this.position.add(this.velocity);
-        this.acceleration.mult(0);
+        // Apply damping to smooth the motion
+        this.velocity.mult(0.99); 
+        this.velocity.add(this.acceleration); // Update velocity with acceleration
+        this.position.add(this.velocity); // Update position with velocity
+        this.acceleration.mult(0); // Reset acceleration after each update
     }
 
     show() {
-        stroke(255); // Fixed color value
+        stroke(255); // White stroke
         strokeWeight(2);
-        fill(45, 147, 244);
-        ellipse(this.position.x, this.position.y, 64);
+        fill(45, 147, 244); // Blue color for the bob
+        ellipse(this.position.x, this.position.y, 64); // Draw the bob
     }
 }
-
-
