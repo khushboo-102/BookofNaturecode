@@ -5,20 +5,17 @@ function setup() {
 }
 
 function draw() {
-    background(204, 204, 255); // Sets a background
+    background(204, 204, 255); // Sets a  background
 
-    // Generates 2 new particles per frame at (300, 200)
-    for (let i = 0; i < 2; i++) {
+    // Generates 5 new particles per frame at (300, 200)
+    for (let i = 0; i < 5; i++) {
         particles.push(new Particle(300, 200));
     }
 
-    // Updates and displays each particle
+    // Updates and displays each particle using the run() method
     for (let particle of particles) {
         let gravity = createVector(0, 0.5); // Gravity force pulling particles downward
-        particle.applyForce(gravity); // Applies gravity to each particle
-        particle.update(); // Updates particle's movement
-        particle.edges(); // Handles boundary collisions
-        particle.show(); // Displays the particle on canvas
+        particle.run(gravity); // Calls run() to apply gravity, update, and display the particle
     }
 }
 
@@ -32,9 +29,12 @@ class Particle {
         this.lifetime = 255; // Lifetime of the particle (for fading effect)
     }
 
-    // Checks if the particle has faded away
-    finished() {
-        return this.lifetime < 0;
+    // New run() method to streamline particle behavior
+    run(force) {
+        this.applyForce(force); // Applies external force (e.g., gravity)
+        this.update(); // Updates position and velocity
+        this.edges(); // Handles boundary collisions
+        this.show(); // Displays the particle
     }
 
     applyForce(force) {
@@ -70,11 +70,6 @@ class Particle {
         stroke(255, this.lifetime); // Sets stroke color with fading effect
         strokeWeight(3); // Sets stroke thickness
         fill(128, 128, 128, this.lifetime); // Fills particle with gray and fading effect
-
-         // if (this.finished()) {
-        //     noFill();
-        // }
-
         ellipse(this.pos.x, this.pos.y, this.r * 8); // Draws the particle as an ellipse
     }
 }
