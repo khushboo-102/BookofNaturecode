@@ -6,14 +6,14 @@ function setup() {
 }
 
 function draw() {
-    background(255, 153, 204); // Set pinkish background
+    background(255, 153, 204); // Set background
 
     // Apply a small random force for natural movement
     emitter.applyForce(createVector(random(-0.1, 0.1), random(-0.05, 0.05)));
 
     emitter.update(); // Update emitter position
     emitter.addParticle(); // Emit a new particle
-    emitter.run(); // Update and display all particles
+    emitter.run(); // Update and show all particles on canvas
 }
 
 // Move emitter to mouse position when clicked
@@ -37,7 +37,7 @@ class Emitter {
         this.acceleration.mult(0); // Reset acceleration after applying it
     }
 
-    // Apply an external force (e.g., wind, gravity)
+    // Apply an external force
     applyForce(force) {
         this.acceleration.add(force);
     }
