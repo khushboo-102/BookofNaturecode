@@ -43,8 +43,7 @@ class Emitter {
     }
 }
 
-// Base Particle class
-class Particle {
+ class Particle {
     constructor(x, y) {
         this.position = createVector(x, y); // Position of the particle
         this.acceleration = createVector(0, 0); // Acceleration (affected by forces)
